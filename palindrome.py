@@ -45,16 +45,17 @@ solution("ABCBAHELLOHOWRACECARAREYOUILOVEUEVOLIIAMAIDOINGGOOD")
 #solution("a23432a43234a")
 #solution("adgbuyebjkao")
 
+# Unit Testing the functions to mark safe deployment of the code.
 import unittest
 
 class TestPalindromes(unittest.TestCase):
 
     def test_is_palindrome(self):
-        # Testing find_palindrome function to see it gives right resuts.
+        # Testing find_palindrome() function to see it gives right resuts.
         assert find_palindrome('ARA') is True 
         assert find_palindrome('ILOVEUEVOLI') is True
 
-        # Testing solution function to get if there is any palindrome present in the given string.
+        # Testing solution() function to get if there is any palindrome present in the given string.
         assert solution('ABCBAHELLOHOWRACECARAREYOUILOVEUEVOLIIAMAIDOINGGOOD') != 0
         assert solution("1234543223454531123211") != 0
         assert solution("!aabbccaaccbbaa!")  != 0
