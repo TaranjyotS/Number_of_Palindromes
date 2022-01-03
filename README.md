@@ -10,6 +10,7 @@ The project proceeds by laying out 3 necessary functions:
 3. test_is_palindrome - Checks if both the functions are working properly by running some unit tests on them. The solution() function is run through a series of different arbitrary strings(characters, numbers, special characters) to check for palindromic substrings. The test case that fails the unit test is presented by "F" in the output terminal.
 
 The complexities for the given program are
-Space compexity - O(n)
-Time complexity - O(n^2)
+1. Space compexity - O(n)
+2. Time complexity - O(n^2)
+
 To run an arbitrary string, just call the function solution() with input as the string you want to run for checking the number of palindromes in.
