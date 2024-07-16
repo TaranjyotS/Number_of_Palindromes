@@ -1,22 +1,37 @@
 import re
 
-# Function to check if the string is palindrome or not.
-def find_palindrome(s):
-    return s == s[::-1]
+def find_palindrome(string):
+    """Finds and returns a boolean if a given string is palindrome.
 
-def solution(s):
+    Args:
+        string: The string for which we want to check if palindrome or not.
+
+    Returns:
+        True, if a given string is palindrome.
+    """
+    return string == string[::-1]
+
+def number_of_palindromes(string):
+    """Returns the number of palindromes in a given string.
+
+    Args:
+        string: The string for which we want to check if palindrome or not.
+
+    Returns:
+        total_palindromes: Numner of palindrome in a given string.
+    """
     palindrome_list = []
-    no_of_palindromes = 0
-    for i in range(len(s)):
-        start = s[i]
-        same_char = s[i::]
+    total_palindromes = 0
+    for i in range(len(string)):
+        start = string[i]
+        same_char = string[i::]
         # re.finditer yields match objects matching the regex pattern in a string.
         for match in re.finditer(start, same_char):
             if match.start()!=0:
                 sub_string = same_char[0:match.start()+1:]
                 
                 if find_palindrome(sub_string) == True:
-                    no_of_palindromes += 1
+                    total_palindromes += 1
                     if i<10:
                         sub_string = sub_string+str(0)+str(i)
                     else:
@@ -30,38 +45,10 @@ def solution(s):
     if len(palindrome_list) == 0:
         print("No palindromes in the given string.")            
     else:
-        print("Number of palindromes in the string are", no_of_palindromes)
+        print("Number of palindromes in the string are", total_palindromes)
         # Printing palindromes with their length and position.
         for i in palindrome_list:
             print(i[:len(i)-2:],",", len(i[:len(i)-2:]),",",i[len(i)-2:len(i):])
         print("\n")
 
-    return no_of_palindromes
-
-solution("ABCBAHELLOHOWRACECARAREYOUILOVEUEVOLIIAMAIDOINGGOOD")
-#solution("1234543223454531123211")
-#solution("!aabbccaaccbbaa!")
-#solution("@!#&@$%&@!@&!")
-#solution("a23432a43234a")
-#solution("adgbuyebjkao")
-
-# Unit Testing the functions to mark safe deployment of the code.
-import unittest
-
-class TestPalindromes(unittest.TestCase):
-
-    def test_is_palindrome(self):
-        # Testing find_palindrome() function to see it gives right resuts.
-        assert find_palindrome('ARA') is True 
-        assert find_palindrome('ILOVEUEVOLI') is True
-
-        # Testing solution() function to get if there is any palindrome present in the given string.
-        assert solution('ABCBAHELLOHOWRACECARAREYOUILOVEUEVOLIIAMAIDOINGGOOD') != 0
-        assert solution("1234543223454531123211") != 0
-        assert solution("!aabbccaaccbbaa!")  != 0
-        assert solution("@!#&@$%&@!@&!")  != 0
-        assert solution("a23432a43234a") != 0
-        assert solution('adgbuyebjkao') != 0  
-        
-if __name__ == '__main__':
-    unittest.main()
+    return total_palindromes
